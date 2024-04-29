@@ -1,0 +1,45 @@
+.nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 600px;
+    background-color: var( --bg-2);
+    width: 90px;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.nav nav a{
+    color: var(--main-bg);
+    font-size: 2rem;
+    color: rgba(244, 238, 238, 0.353);
+    margin-top: 2rem;
+    display: block;
+    transition: color 300ms;
+}
+.nav nav a.active{
+    color: var(--red);
+}
+.nav nav a:hover{
+    color: var(--red);
+}
+img, svg{
+    display: block;
+}
+@media (max-width:700px){
+    .nav{
+        height: auto;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+    }
+    .nav nav {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .nav nav a{
+        margin: 0;
+    }
+}

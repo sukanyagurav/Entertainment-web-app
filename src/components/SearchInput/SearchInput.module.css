@@ -1,0 +1,35 @@
+.searchContainer{
+    display: flex;
+    align-items: center;
+    padding: 1.2rem ;
+    gap: 1rem;
+    width: 100%;
+}
+.searchContainer input{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: 1.5rem;
+    padding:0.4rem 1rem 0.4rem 0;
+    border-bottom: 1px solid rgb(213, 211, 211);
+    letter-spacing:0.12rem;
+    color: var(--white);
+}
+.searchContainer button{
+    background-color: var(--light-blue);
+    padding: 0.9rem 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color:var(--white);
+    letter-spacing:0.12rem;
+}
+.searchContainer button:hover{
+    background-color: transparent;
+    border: 1px solid var(--light-blue);
+}
+.searchContainer svg{
+    width: 40px;
+    height: 40px;
+}

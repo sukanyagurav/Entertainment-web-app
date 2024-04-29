@@ -1,0 +1,51 @@
+.carousel{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 1300px;
+}
+.carousel_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.carousel_header h2{
+    font-weight: 300;
+}
+.carousel_header .badge{
+    font-size: 0.75rem;
+    border:1px solid rgb(141, 136, 136);
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    margin-left: 0.5rem;
+}
+.carousel_header a{
+    color: rgb(141, 136, 136);
+    transition: all 0.5s;
+}
+.carousel_header a button{
+    background-color: transparent;
+    border: none;
+}
+.carousel_header a:hover{
+    color: var(--white);
+    text-decoration: underline;
+}
+.carousel_body{
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-top: 2rem;
+    overflow-x: scroll;
+}
+.carousel_body::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+    background-color:var(--bg-2);
+    border-radius: 10px;
+}
+.carousel_body::-webkit-scrollbar-thumb{
+    background-color: var(--red);
+    border-radius: 10px;
+}

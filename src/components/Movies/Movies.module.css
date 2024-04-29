@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:3rem;
+    margin-top: 2rem;
+
+}
+@media (max-width:700px) {
+    .container{
+        justify-content: center;
+        align-items: center;
+    }
+}

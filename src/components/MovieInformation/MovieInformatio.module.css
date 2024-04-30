@@ -1,0 +1,136 @@
+.movieInfoContainer{
+    display: flex;
+    gap: 2rem;
+    justify-content: space-evenly;
+    margin-top: 4rem;
+
+}
+.movieInfoContainer .movieImage{
+    max-width: 300px;
+    height: 500px;
+    border-radius: 20px;
+    display: block;
+    flex: 0.5;
+    box-shadow: rgba(0, 0, 0, 0.574) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.movieContent{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex: 0.5;
+}
+.movieContent h2{
+    font-size: 2.2rem;
+    font-weight: 400;
+}
+.tagLine{
+    margin-top: 0.5rem;
+    font-size: 1.04rem;
+    color: rgb(188, 184, 184);
+}
+.movie_stat{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}  
+.movie_stat li h6{
+    margin-top: 0.2rem;
+    font-size: 1rem;
+    padding:0.3rem 0.9rem;
+    border: 1px solid gray;
+    border-radius: 20px;
+    font-weight: 400;
+}
+
+.headings{
+    margin-top: 1rem;
+    color: rgb(204, 204, 204);
+    font-weight: 600;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+.description{
+    line-height: 1.6;
+}
+.movie_genres,.links{
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.movie_genres li,.links li{
+    padding: 0.5rem 1rem;
+    background-color: var(--white);
+    border-radius: 20px;
+    color: var(--main-bg);
+    margin-top: 0.5rem;
+}
+.movie_cast{
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+.movie_cast::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+}
+.movie_cast::-webkit-scrollbar{
+    width: 6px;
+    height:6px ;
+}
+
+.movie_cast::-webkit-scrollbar-track{
+    background-color: rgba(132, 131, 131, 0.684);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.movie_cast::-webkit-scrollbar-thumb{
+    background-color: var(--red);
+    border-radius: 12px;
+    cursor: pointer;
+}
+.movie_cast li{
+    width: 120px;
+    word-wrap: break-word;
+}
+.actor__image{
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+
+}
+.links button,.movie_genres li button{
+    border: none;
+   width: 100%;
+   background-color: transparent;
+   color: var(--main-bg);
+   font-size: 1.1rem;
+}
+@media (max-width:700px) {
+    .movieInfoContainer{
+        padding: 1.3rem;
+        flex-direction: column;
+    }
+    .movieInfoContainer .movieImage{
+        max-width: 100%;
+        max-height: 500px;
+        margin-inline:auto;
+        aspect-ratio: 1;
+    }
+    .movieInfoContainer h2{
+        text-align: center;
+
+    }
+    .movie_stat{
+        margin-inline: auto;
+    }
+}

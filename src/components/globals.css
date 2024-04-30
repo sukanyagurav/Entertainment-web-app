@@ -11,6 +11,9 @@
     --light-blue:#5A6A90;
     --category-bg:#162C46;
 }
+button{
+    cursor: pointer;
+}
 body{
     background-color: var(--main-bg);
     color: var(--white);
@@ -45,6 +48,7 @@ main{
     min-width: 650px;
     margin-left:60px;
     width: 100%;
+    margin-bottom: 1rem;
 }
 footer{
     text-align: center;
@@ -54,12 +58,18 @@ footer{
 .container_card{
     width: 250px;
     height: 330px;
+    transition: all 0.5s ease-in-out;
+}
+.container_card:hover .container_card{
+    transform: scale(1.1);
 }
 .container_card img{
     object-fit: cover;
     width: 250px;
     height: 250px;
     border-radius: 20px;
+    box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
+    rgb(0 0 0 / 73%) 0px 16px 10px -10px;
 }
 .container_card_title{
     font-size: 1rem;
@@ -79,6 +89,26 @@ footer{
 }
 button{
     color: var(--white);
+    cursor: pointer;
+}
+body::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+}
+body::-webkit-scrollbar{
+    width: 6px;
+    height:6px ;
+}
+
+body::-webkit-scrollbar-track{
+    background-color: rgba(132, 131, 131, 0.684);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: var(--red);
+    border-radius: 12px;
     cursor: pointer;
 }
 @media (max-width:700px){

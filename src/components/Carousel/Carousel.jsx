@@ -5,7 +5,7 @@ import classes from './Carousel.module.css'
 import { selectGenre } from '../services/currentGenre'
 import { useDispatch } from 'react-redux'
 import loadingImg from '../../assets/Spinner@1.25x-1.0s-200px-200px (1).svg'
-
+import noMovieFound from '../../assets/no image found.jpg'
 
 
 
@@ -34,7 +34,7 @@ const Carousel = ({heading_name,type,tag,genreName}) => {
                 data?.results.map(movie=>(
                     <div className="container_card">
                     <Link  to={`/${type}/${movie.id}`}>
-                        <img src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path }` : 'https://www.fillmurray.com/200/300'}  alt={movie.title} />
+                        <img src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path }` : noMovieFound}  alt={movie.title} />
                         <div className="container_card_details">
                             <span>{type==='movie' ? movie.release_date?.split('-')[0] : movie.first_air_date?.split('-')[0]}</span> 
                             &#x2022;<span>{type === 'movie' ? 

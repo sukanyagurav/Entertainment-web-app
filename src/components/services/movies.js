@@ -33,9 +33,11 @@ export const tmdbApi=createApi({
                 //return `${type}/${genreName}?page=${page}&api_key=${tmdbApiKey}`
             }
         }),
-        //get movies by genre
-
+        //get movies by id
+        getMovie:builder.query({
+            query:({type,id})=>  `${type}/${id}?append_to_response=videos,credits&api_key=${tmdbApiKey}`
+        })
     })
 })
 
-export const {useGetInitialMoviesQuery} = tmdbApi
+export const {useGetInitialMoviesQuery,useGetMovieQuery} = tmdbApi

@@ -5,6 +5,7 @@ import classes from './Movies.module.css';
 import { useSelector } from 'react-redux';
 import loadingImg from '../../assets/Spinner@1.25x-1.0s-200px-200px (1).svg'
 import { selectGenre } from '../services/currentGenre'
+import noMovieFound from '../../assets/no image found.jpg'
 const Movies = () => {
   const path = useLocation()
   let type=path.pathname.split('/')[1]
@@ -42,7 +43,7 @@ const Movies = () => {
                 data?.results.map(item=>(
                     <div className="container_card">
                     <Link  to={`/${type}/${item.id}`}>
-                        <img src={item.poster_path ? `https://image.tmdb.org/t/p/w500/${item.poster_path }` : 'https://www.fillmurray.com/200/300'}  alt={(type==='movie'|| item.media_type ==='movie')} />
+                        <img src={item.poster_path ? `https://image.tmdb.org/t/p/w500/${item.poster_path }` : noMovieFound}  alt={(type==='movie'|| item.media_type ==='movie')} />
                         <div className="container_card_details">
                             <span>{(type==='movie'|| item.media_type ==='movie') ? item.release_date?.split('-')[0] : item.first_air_date?.split('-')[0]}</span> 
                             &#x2022;<span>{(type === 'movie' || item.media_type ==='movie') ? 

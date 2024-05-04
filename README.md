@@ -1,12 +1,12 @@
-#Frontend Mentor - Entertainment web app
+# Frontend Mentor - Entertainment web app
 
 ![Design desktop preview for the Movie list app ](./src/assets/desktop%20preview.png)
 
-![Design mobile preview for the movie list app](./src/assets/mobieLayout.png)
+![Design mobile preview for the movie list app](./src/assets/mobile%20preview.png)
 
 
 ## Overview
-- An entertainment web app built with Next.js and TailwindCSS that allows users to search for movies and tv shows.
+A React-based entertainment web application facilitates users in discovering movies and TV shows, including detailed information about the actors. Users can also explore media content categorized by different genres.
 
 ![Design mobile preview for the movie list app](./src/assets/moviedetails.png)
 
@@ -26,7 +26,7 @@ Your users should be able to:
 - Search for relevant shows on all pages
 
 
-# Build With 
+## Built With 
 - FlexBox / Grid
 - React
 - Redux toolkit

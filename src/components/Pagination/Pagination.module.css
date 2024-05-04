@@ -1,22 +1,24 @@
 .pagination{
     display: flex;
-    gap: 1rem;
+    border-radius: 10px;
     margin-inline: auto;
     align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--red);
+    overflow: hidden;
 }
 .pagination button{
     background-color: var(--red);
     padding: 0.5rem 1rem;
     color: var(--bg-2);
     border: none;
+    transition: all 0.5s ease-in;
 }
-.prev {
-    border-radius: 10px 0 0 10px;
-}
-.next {
-    border-radius: 0 10px 10px 0 ;
+.pagination button:hover{
+    background-color: var(--white);
 }
 .pagination span{
     color: var(--red);
-    font-weight: 600
+    font-weight: 600;
+
 }

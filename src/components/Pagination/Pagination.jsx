@@ -13,14 +13,14 @@ const Pagination = ({currentPage,setPage,totalPages}) => {
         }
     }
   return (
-    <div className={classes.prev}>
-      <button className={classes.pageBtn} onClick={handlePrev}>
+    <div className={classes.pagination}>
+      <button className={classes.btnPrev} onClick={handlePrev}>
         Prev
       </button>
       <span xlassName={classes.pageCount}>
         {currentPage} of {totalPages}
       </span>
-      <button  className={classes.next} onClick={handleNext}>
+      <button  className={classes.btnNext} onClick={handleNext}>
         Next
       </button>
     </div>

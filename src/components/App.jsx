@@ -10,6 +10,7 @@ import GenrePage from './GenrePage/GenrePage'
 import Category from './Category/Category.jsx'
 import axios from 'axios'
 import MovieInformation from './MovieInformation/MovieInformation.jsx'
+import Actor from './Actor/Actor.jsx'
 const router = createBrowserRouter([
   {
     element:<RootLayout/>,
@@ -18,7 +19,10 @@ const router = createBrowserRouter([
         path:'/',
         element:<Home/>,
       },
-      
+      {
+        path:'/actors/:id',
+        element:<Actor/>
+      },
       { 
         path:'/movie',
         children:[

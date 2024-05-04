@@ -1,0 +1,22 @@
+.pagination{
+    display: flex;
+    gap: 1rem;
+    margin-inline: auto;
+    align-items: center;
+}
+.pagination button{
+    background-color: var(--red);
+    padding: 0.5rem 1rem;
+    color: var(--bg-2);
+    border: none;
+}
+.prev {
+    border-radius: 10px 0 0 10px;
+}
+.next {
+    border-radius: 0 10px 10px 0 ;
+}
+.pagination span{
+    color: var(--red);
+    font-weight: 600
+}

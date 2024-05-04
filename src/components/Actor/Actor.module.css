@@ -1,0 +1,42 @@
+.actorsInfo{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.image{
+    max-width: 280px;
+    height: 420px;
+    border-radius: 10px;
+    margin-inline: auto;
+}
+.content{
+    padding: 0 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.content h2 {
+    font-size: 2rem;
+}
+.content p{
+    line-height: 1.7;
+}
+.buttons{
+    display: flex;
+    justify-content: space-around;
+}
+.buttons a, .buttons button{
+    background: var(--red);
+    border: none;
+    padding: 1rem 2rem;
+    color: var(--bg-2);
+    border-radius: 6px;
+}
+
+@media (max-width:850px) {
+    .actorsInfo{
+        flex-direction: column;
+    }
+
+}

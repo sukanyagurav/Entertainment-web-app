@@ -20,17 +20,17 @@
     border-radius: 10px;
     margin-left: 0.5rem;
 }
-.carousel_header a{
-    color: rgb(141, 136, 136);
-    transition: all 0.5s;
-}
+
 .carousel_header a button{
+    color: rgb(141, 136, 136);
     background-color: transparent;
     border: none;
+    padding-bottom: 1rem;
+    transition: all 0.5s ;
 }
-.carousel_header a:hover{
-    color: var(--white);
-    text-decoration: underline;
+.carousel_header a button:hover{
+    color: var(--red);
+
 }
 .carousel_body{
     display: flex;
@@ -48,4 +48,5 @@
 .carousel_body::-webkit-scrollbar-thumb{
     background-color: var(--red);
     border-radius: 10px;
+    width: 25px;
 }

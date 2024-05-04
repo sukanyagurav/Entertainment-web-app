@@ -31,7 +31,7 @@ const Carousel = ({heading_name,type,tag,genreName}) => {
         </div>
         <div className={classes.carousel_body}>
             {
-                data?.results.map(movie=>(
+               [ ...data?.results.slice(0,7)].map(movie=>(
                     <div className="container_card">
                     <Link  to={`/${type}/${movie.id}`}>
                         <img src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path }` : noMovieFound}  alt={movie.title} />

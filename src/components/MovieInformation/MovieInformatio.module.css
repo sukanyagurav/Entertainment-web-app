@@ -3,7 +3,7 @@
     gap: 2rem;
     justify-content: space-evenly;
     margin-top: 4rem;
-
+    padding: 1.3rem;
 }
 .movieInfoContainer .movieImage{
     max-width: 300px;
@@ -102,11 +102,11 @@
     word-wrap: break-word;
 }
 .actor__image{
-    width: 80px;
-    height: 80px;
-    border-radius: 20px;
     margin-bottom: 1rem;
-
+    height: 8em;
+    max-width: 13em;
+    object-fit: cover;
+    border-radius: 10px;
 }
 .links button,.movie_genres li button{
     border: none;
@@ -115,20 +115,22 @@
    color: var(--main-bg);
    font-size: 1.1rem;
 }
+
+.recommendations .container{
+  justify-content: space-around;
+}
 @media (max-width:700px) {
     .movieInfoContainer{
-        padding: 1.3rem;
         flex-direction: column;
     }
     .movieInfoContainer .movieImage{
         max-width: 100%;
         max-height: 500px;
         margin-inline:auto;
-        aspect-ratio: 1;
+        aspect-ratio: 1/2;
     }
     .movieInfoContainer h2{
         text-align: center;
-
     }
     .movie_stat{
         margin-inline: auto;

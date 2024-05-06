@@ -13,7 +13,7 @@ const Pagination = ({currentPage,setPage,totalPages}) => {
         }
     }
   return (
-    <div className={classes.pagination}>
+    <div  className={classes.pagination}>
       <button className={classes.btnPrev} onClick={handlePrev}>
         Prev
       </button>

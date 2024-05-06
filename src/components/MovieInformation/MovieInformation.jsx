@@ -74,8 +74,14 @@ const MovieInformation = () => {
               </li>))}
           </ul>
           <ul className={classes.links}>
-            <li><Link to={data?.homepage} target='_blank'>Website <i class="fa-solid fa-link"></i></Link></li>
-            <li><button  onClick={()=>{setIsOpen(true)}}>Trailer <i class="fa-solid fa-film"></i></button></li>
+            <li><Link to={data?.homepage} target='_blank' style={{opacity:`${data?.homepage ? '1' : '0.5' }`,
+            pointerEvents: data?.homepage ? data?.homepage : 'none',
+            cursor:`${data?.homepage ? 'pointer' : 'not-allowed' }`}}>
+            
+            Website <i class="fa-solid fa-link"></i></Link></li>
+            <li><button  onClick={()=>{setIsOpen(true)}} style={{opacity:`${data?.videos?.results[0]?.key ? '1' : '0.5' }`,
+            cursor:`${data?.videos?.results[0]?.key ? 'pointer' : 'not-allowed' }`
+            }} disabled={data?.videos?.results[0]?.key ? false :true}>Trailer <i class="fa-solid fa-film"></i></button></li>
             <li><Link  to="/">Back <i class="fa-solid fa-arrow-left"></i></Link></li>
           </ul>
          
@@ -86,10 +92,10 @@ const MovieInformation = () => {
             <h3 className="headings">You may also like</h3>
             <div className="movieContainer">
                 {
-                  recommendations ? recommendations.results.slice(0,12).map(item=>(
+                  recommendations.results.length > 0 ? recommendations.results.slice(0,12).map(item=>(
                     <Movie item={item} type={type}/>
                   ))
-                  : <p>Sorry, nothing was found.</p>
+                  : <p style={{textAlign:'center'}}>Sorry, nothing was found.</p>
                 }
                 </div>
     </section>

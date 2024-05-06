@@ -11,13 +11,16 @@ import Category from './Category/Category.jsx'
 import axios from 'axios'
 import MovieInformation from './MovieInformation/MovieInformation.jsx'
 import Actor from './Actor/Actor.jsx'
+import Error from './Error/Error.jsx'
 const router = createBrowserRouter([
   {
     element:<RootLayout/>,
+    errorElement:<Error/>,
     children:[
       {
         path:'/',
         element:<Home/>,
+        
       },
       {
         path:'/actors/:id',

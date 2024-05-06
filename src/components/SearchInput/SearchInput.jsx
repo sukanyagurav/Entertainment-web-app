@@ -10,7 +10,7 @@ const SearchInput = () => {
     const dispatch = useDispatch()
     let searchTerm=''
     const navigate= useNavigate()
-    if(searchTermValidation == '' && searchTermValidation === 'search'){
+    if(searchTermValidation == '' || searchTermValidation === 'search'){
         searchTerm ='Movies or TV'
     }
     else if(searchTermValidation === 'movie'){

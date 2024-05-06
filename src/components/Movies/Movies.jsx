@@ -11,7 +11,7 @@ import Pagination from '../Pagination/Pagination';
 const Movies = () => {
   const path = useLocation()
   let type=path.pathname.split('/')[1]
-  console.log(type)
+  
   let { genre } = useParams();
   const [page,setPage] = useState(1)
   if(type==='movie'){
@@ -21,6 +21,7 @@ const Movies = () => {
   }else{
     type=''
   }
+
   const {genreName,searchQuery} = useSelector((state)=>state.genre)
   const {data,error,isFetching} = useGetInitialMoviesQuery({type,genreName,page,searchQuery})
   function makeCapital(sentence){

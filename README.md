@@ -24,6 +24,7 @@ Your users should be able to:
 - See hover states for all interactive elements on the page
 - Navigate between Home, Movies, TV Series 
 - Search for relevant shows on all pages
+- Based on movie user can see the 'You may also like' movies or TV series. Also User can see the actors who has casted on movie or TV series.
 
 
 ## Built With 

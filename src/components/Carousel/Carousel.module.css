@@ -37,7 +37,9 @@
     justify-content: space-between;
     gap: 3rem;
     margin-top: 2rem;
+    overflow-y: hidden;
     overflow-x: scroll;
+    padding: 1rem;
 }
 .carousel_body::-webkit-scrollbar{
     width: 5px;

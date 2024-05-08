@@ -93,8 +93,11 @@ footer{
 .container_card{
     width: 250px;
     height: 330px;
+    transition: transform 450ms;
 }
-
+.container_card:hover{
+    transform: scale(1.12);
+}
 .container_card img{
     object-fit: cover;
     width: 250px;
@@ -110,6 +113,7 @@ footer{
     text-overflow: ellipsis;
     font-weight: 600;
     margin-top: 0.5rem;
+    width: 200px;
 }
 .container_card_details{
     display: flex;

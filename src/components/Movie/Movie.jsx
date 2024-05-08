@@ -12,7 +12,7 @@ const Movie = ({item,type}) => {
   return (
     <div className="container_card">
     <Link  to={`/${type}/${item.id}`}>
-        <img loading="lazy" src={item.poster_path ? `https://image.tmdb.org/t/p/w500/${item.poster_path }` : noMovieFound}  alt={(type==='movie'|| item.media_type ==='movie')} />
+        <img loading="lazy" src={item.backdrop_path ? `https://image.tmdb.org/t/p/w500/${item.backdrop_path }` : noMovieFound}  alt={(type==='movie'|| item.media_type ==='movie')} />
         <div className="container_card_details">
             <span>{(type==='movie'|| item.media_type ==='movie') ? ( item.release_date ? item.release_date.split('-')[0] : 'Upcoming')  : 
             (item.first_air_date ? item.first_air_date?.split('-')[0] : 'Upcoming')}</span> 

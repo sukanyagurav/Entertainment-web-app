@@ -1,42 +1,119 @@
-.actorsInfo{
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 2rem;
+/* Hallmark · theme: Spore · redesign: full · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E5 S5 R5 V4 · weakest: V, the portrait and credits use different compositions */
+.actorsInfo {
+  display: grid;
+  grid-template-columns: minmax(200px, 0.7fr) minmax(0, 1.3fr);
+  align-items: start;
+  gap: var(--space-2xl);
+  margin-top: var(--space-2xl);
 }
-.image{
-    max-width: 280px;
-    height: 420px;
-    border-radius: 10px;
-    margin-inline: auto;
+
+.image {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 2 / 3;
+  margin-inline: auto;
+  border-radius: var(--radius-card);
+  object-fit: cover;
+  background: var(--color-paper-2);
 }
-.content{
-    padding: 0 2rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+
+.content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0 var(--space-xl);
 }
+
 .content h2 {
-    font-size: 2rem;
-}
-.content p{
-    line-height: 1.7;
-}
-.buttons{
-    display: flex;
-    justify-content: space-around;
-}
-.buttons a, .buttons button{
-    background: var(--red);
-    border: none;
-    padding: 1rem 2rem;
-    color: var(--bg-2);
-    border-radius: 6px;
+  font-size: var(--text-display);
+  text-wrap: balance;
 }
 
-@media (max-width:850px) {
-    .actorsInfo{
-        flex-direction: column;
-    }
+.backButton {
+  margin-top: var(--space-lg);
+}
 
+.nameRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.content h4 {
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.content p {
+  max-width: 68ch;
+  color: var(--color-ink-2);
+  line-height: 1.7;
+}
+
+.iconButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+  font: inherit;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+}
+
+.iconButton:hover {
+  background: var(--color-paper-3);
+  color: var(--color-accent);
+}
+
+.imdbIcon {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.iconButton svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.iconButton:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 760px) {
+  .actorsInfo {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+  }
+
+  .image {
+    max-width: 280px;
+  }
+
+  .content {
+    padding-top: 0;
+  }
+
+  .backButton {
+    margin-top: var(--space-md);
+  }
 }

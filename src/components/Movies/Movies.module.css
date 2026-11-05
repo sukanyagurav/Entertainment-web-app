@@ -1,0 +1,172 @@
+/* Hallmark · theme: Spore · redesign: full · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E5 S5 R5 V4 · weakest: V, filter density stays subordinate to the title grid */
+.filterHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-xl);
+}
+
+.filterHeader h2 {
+  min-width: 0;
+  padding-top: var(--space-xs);
+}
+
+.filterControls {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-sm);
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+.filters__select {
+  min-width: 132px;
+  min-height: 44px;
+  padding: var(--space-xs) 40px var(--space-xs) var(--space-md);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  appearance: none;
+  background-color: var(--color-paper-2);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='m4 6 4 4 4-4' stroke='%23c9b8a8' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-md) center;
+  background-size: 16px;
+  color: var(--color-ink);
+  color-scheme: dark;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+}
+
+.filters__select option {
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+}
+
+.filters__select:hover,
+.filters__select:focus-visible {
+  border-color: var(--color-accent);
+  background-color: var(--color-paper-3);
+}
+
+.filters__select:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px color-mix(in oklch, var(--color-focus) 45%, transparent);
+}
+
+.emptyState {
+  width: fit-content;
+  max-width: 100%;
+  margin: var(--space-2xl) auto;
+  padding: var(--space-lg) var(--space-xl);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-card);
+  background: var(--color-paper-2);
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.filters__reset {
+  min-height: 34px;
+  padding: var(--space-2xs) var(--space-sm);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  background-color: transparent;
+  color: var(--color-ink-2);
+  font-size: var(--text-xs);
+  transition: border-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+}
+
+.filters__reset:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.filterChips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-xs);
+}
+
+.filterChip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: 34px;
+  padding: var(--space-2xs) var(--space-2xs) var(--space-2xs) var(--space-sm);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  background: var(--color-paper-2);
+  color: var(--color-ink-2);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+}
+
+.filterChip button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-muted);
+}
+
+.filterChip button:hover {
+  background: var(--color-paper-3);
+  color: var(--color-accent);
+}
+
+.filterChip button svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.8;
+}
+
+@media (max-width: 900px) {
+  .filterHeader {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .filterControls {
+    width: 100%;
+  }
+
+  .filters,
+  .filterChips {
+    justify-content: flex-end;
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .filters {
+    justify-content: flex-start;
+  }
+
+  .filterChips {
+    justify-content: flex-start;
+  }
+
+  .filters__select {
+    min-width: 0;
+    flex: 1 1 140px;
+  }
+}

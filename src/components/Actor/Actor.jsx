@@ -31,32 +31,48 @@ if(error){
  
   return (
   <>
+    <button
+      type="button"
+      className={`${classes.iconButton} ${classes.backButton} uiTooltip`}
+      data-tooltip="Back"
+      aria-label="Go back"
+      onClick={() => navigate(-1)}
+    >
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+        <path d="M19 12H5m0 0 7 7m-7-7 7-7" />
+      </svg>
+    </button>
     <section className={classes.actorsInfo}>
         <img className={classes.image}
               src={`https://image.tmdb.org/t/p/w780/${data?.profile_path}`}
               alt={data.name}
             />
-        <div className={classes.content}>
-            <h2>{data?.name}</h2>
-            <h4>Born: {new Date(data?.birthday).toDateString()}</h4>
-            <p> {data?.biography || 'Sorry, no biography yet....'}</p>
-            <div className={classes.buttons}>
-               <Link  href={`https://www/imdb.com/name/${data?.imdb_id}`}>
-                  IMDB
-                </Link>
-
-                <button   onClick={() => navigate(-1)} >
-                    Back <i class="fa-solid fa-arrow-left"></i>
-                </button>
+            <div className={classes.content}>
+                <div className={classes.nameRow}>
+                  <h2>{data?.name}</h2>
+                  {data?.imdb_id && (
+                    <a
+                      className={`${classes.iconButton} uiTooltip`}
+                      data-tooltip="IMDb"
+                      href={`https://www.imdb.com/name/${data.imdb_id}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="View IMDb profile"
+                    >
+                      <span aria-hidden="true" className={classes.imdbIcon}>IMDb</span>
+                    </a>
+                  )}
+                </div>
+                <h4>Born: {new Date(data?.birthday).toDateString()}</h4>
+                <p> {data?.biography || 'Sorry, no biography yet....'}</p>
             </div>
-        </div>
     </section>
     <div>
         <section className="CommonContainer" style={{display:'flex',flexDirection:'column'}}>
             <h2 className='headings'>Top Movies</h2>
             <div className="movieContainer">
             {
-              [...data?.movie_credits?.cast].slice(page * 8 - 8, page * 8).map(movie=><Movie item={movie} type={'movie'}/>)
+              [...data?.movie_credits?.cast].slice(page * 8 - 8, page * 8).map((movie,index)=><Movie item={movie} type={'movie'} isPriority={index === 0}/>)
             
             }
             </div>
@@ -66,7 +82,7 @@ if(error){
             <h2 className='headings'>Top Tv Series</h2>
             <div className="movieContainer">
             {
-              [...unqiueTV].slice(tvPage * 8 - 8, tvPage * 8).map(tv=><Movie item={tv} type={'tv'}/>)
+              [...unqiueTV].slice(tvPage * 8 - 8, tvPage * 8).map((tv,index)=><Movie item={tv} type={'tv'} isPriority={index === 0}/>)
             }
             </div>
             <Pagination   currentPage ={tvPage} setPage ={setTvPage} totalPages={Math.ceil(unqiueTV?.length / 8)}/>

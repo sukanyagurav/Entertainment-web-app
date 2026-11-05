@@ -1,45 +1,153 @@
-.nav{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 600px;
-    background-color: var( --bg-2);
-    width: 90px;
-    border-radius: 10px;
-    padding: 2rem;
+/* Hallmark · theme: Spore · redesign: full · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E5 S5 R5 V4 · weakest: V, the same shell anchors every route */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  width: 100%;
+  min-height: 72px;
+  padding: var(--space-xs) var(--space-lg);
+  border: 1px solid color-mix(in oklch, var(--color-ink) 8%, transparent);
+  border-radius: var(--radius-pill);
+  background: color-mix(in oklch, var(--color-paper-2) 92%, transparent);
+  backdrop-filter: blur(18px);
 }
 
-.nav nav a{
-    color: var(--main-bg);
-    font-size: 2rem;
-    color: rgba(244, 238, 238, 0.353);
-    margin-top: 2rem;
-    display: block;
-    transition: color 300ms;
+.nav > a {
+  flex: 0 0 auto;
 }
-.nav nav a.active{
-    color: var(--red);
+
+.nav > a img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
-.nav nav a:hover{
-    color: var(--red);
+
+.nav nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
 }
-img, svg{
-    display: block;
+
+.nav nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  min-width: 44px;
+  min-height: 44px;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-pill);
+  position: relative;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  transition: color var(--dur-short) var(--ease-out);
 }
-@media (max-width:700px){
-    .nav{
-        height: auto;
-        width: 100%;
-        flex-direction: row;
-        align-items: center;
-    }
-    .nav nav {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-    .nav nav a{
-        margin: 0;
-    }
+
+.nav nav a::after {
+  position: absolute;
+  right: 50%;
+  bottom: 4px;
+  left: 50%;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  content: "";
+  transition:
+    right var(--dur-long) var(--ease-in-out),
+    left var(--dur-long) var(--ease-in-out);
+}
+
+.nav nav a svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+}
+
+.nav nav a:hover {
+  color: var(--color-accent);
+}
+
+.nav nav a.active {
+  color: var(--color-accent);
+}
+
+.nav nav a.active::after {
+  right: var(--space-md);
+  left: var(--space-md);
+}
+
+.nav > form {
+  flex: 0 1 340px;
+  margin-left: auto;
+}
+
+@media (max-width: 1024px) {
+  .nav {
+    display: grid;
+    grid-template-areas:
+      "brand search"
+      "menu menu";
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--space-sm) var(--space-md);
+    padding: var(--space-sm) var(--space-md) 0;
+    border-radius: var(--radius-card);
+  }
+
+  .nav > a:first-child {
+    grid-area: brand;
+  }
+
+  .nav nav {
+    grid-area: menu;
+    justify-content: space-around;
+    width: 100%;
+    gap: 0;
+    padding-top: var(--space-xs);
+    border-top: 1px solid color-mix(in oklch, var(--color-ink) 8%, transparent);
+  }
+
+  .nav nav a {
+    position: relative;
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    min-width: 0;
+    min-height: 64px;
+    padding: var(--space-xs) var(--space-2xs);
+    border-radius: 0;
+  }
+
+  .nav nav a::after {
+    right: 50%;
+    bottom: 0;
+    left: 50%;
+  }
+
+  .nav nav a.active::after {
+    right: 28%;
+    left: 28%;
+  }
+
+  .nav nav a svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nav > form {
+    grid-area: search;
+    justify-self: end;
+    width: min(100%, 400px);
+    min-width: 0;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .nav > form {
+    width: 100%;
+  }
 }

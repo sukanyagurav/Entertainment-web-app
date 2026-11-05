@@ -1,34 +1,57 @@
-.genresContainer{
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    gap: 2rem;
+/* Hallmark · theme: Spore · redesign: full · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E5 S5 R5 V4 · weakest: V, category rows remain consistent with the browsing grid */
+.heading {
+  margin: var(--space-xl) 0 var(--space-lg);
+  font-size: var(--text-display-s);
 }
-.genresContainer button{
-    background-color: transparent;
-    border: none;
+
+.genresContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+  gap: var(--space-md);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-.genresContainer li{
-    height: 150px;
-    list-style: none;
-    width: 150px;
-    background: #162C46;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
-    rgb(0 0 0 / 73%) 0px 16px 10px -10px;
-    padding: 1rem;
-    text-align: center;
+
+.genresContainer li {
+  min-width: 0;
+  min-height: 112px;
+  border-radius: var(--radius-card);
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+  list-style: none;
+  transition: background-color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out);
 }
-.genresContainer li span{
-    font-weight: 500;
-    font-size: 1.1rem;
+
+.genresContainer li:hover {
+  transform: translateY(-2px);
+  background: var(--color-paper-3);
 }
-@media (max-width:700px) {
-    .genresContainer{
-        align-items: center;
-        justify-content: center;
-    }
+
+.genresContainer li a {
+  display: flex;
+  align-items: end;
+  width: 100%;
+  min-height: inherit;
+  padding: var(--space-lg);
+  color: inherit;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+}
+
+.genresContainer li a:focus-visible {
+  border-radius: var(--radius-card);
+}
+
+@media (max-width: 560px) {
+  .genresContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .genresContainer li a {
+    padding: var(--space-md);
+    font-size: var(--text-lg);
+  }
 }

@@ -1,0 +1,74 @@
+/* Hallmark · theme: Spore · redesign: full · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E5 S5 R5 V4 · weakest: V, the recovery actions retain the app's familiar routes */
+.error {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-md);
+  min-height: 52vh;
+  padding: var(--space-2xl) var(--space-lg);
+  text-align: center;
+}
+
+.error__code {
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: var(--text-error-code);
+  font-weight: var(--display-weight);
+  line-height: 1;
+}
+
+.error__title {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: var(--text-2xl);
+}
+
+.error__message {
+  max-width: 42ch;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--text-md);
+}
+
+.error__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.error__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: var(--space-xs) var(--space-lg);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  transition: color var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+}
+
+.error__btn--primary {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+.error__btn--primary:hover {
+  background: var(--color-accent-2);
+}
+
+.error__btn--ghost {
+  background: transparent;
+  color: var(--color-ink-2);
+}
+
+.error__btn--ghost:hover {
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+}

@@ -1,0 +1,43 @@
+/* Hallmark · theme: Spore · redesign: full · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E5 S5 R5 V4 · weakest: V, rating supports both shelves and detail pages */
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.rating__stars {
+  display: flex;
+  gap: var(--space-3xs);
+}
+
+.rating__star {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+}
+
+.rating__starIcon {
+  position: absolute;
+  inset: 0;
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.rating__starEmpty {
+  color: var(--color-paper-3);
+}
+
+.rating__starFilled {
+  color: var(--color-accent);
+}
+
+.rating__value {
+  color: var(--color-ink-2);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+}

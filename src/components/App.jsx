@@ -1,17 +1,17 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Home from './Home/Home'
-import Movies from './Movies/Movies'
-import Tv from './Tv/Tv'
-import RootLayout from './RootLayout.js'
 import { Provider } from 'react-redux'
 import store from './app/store.js'
-import GenrePage from './GenrePage/GenrePage'
-import Category from './Category/Category.jsx'
 import axios from 'axios'
-import MovieInformation from './MovieInformation/MovieInformation.jsx'
-import Actor from './Actor/Actor.jsx'
-import Error from './Error/Error.jsx'
+import Home from './Home/Home'
+import RootLayout from './RootLayout.jsx'
+
+const Movies = lazy(() => import('./Movies/Movies'))
+const Category = lazy(() => import('./Category/Category.jsx'))
+const MovieInformation = lazy(() => import('./MovieInformation/MovieInformation.jsx'))
+const Actor = lazy(() => import('./Actor/Actor.jsx'))
+const Error = lazy(() => import('./Error/Error.jsx'))
+
 const router = createBrowserRouter([
   {
     element:<RootLayout/>,
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
           index:true,
           element:<Category/>,
           loader:async ()=>{
-              const {data} = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+              const {data} = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${import.meta.env.VITE_TMDB_API_KEY || import.meta.env.REACT_APP_TMDB_API_KEY}`)
               return data
           }
          },{
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
           { index:true,
             element:<Category/>,
             loader:async ()=>{
-              const {data} =await axios.get(`https://api.themoviedb.org/3/genre/tv/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+              const {data} =await axios.get(`https://api.themoviedb.org/3/genre/tv/list?api_key=${import.meta.env.VITE_TMDB_API_KEY || import.meta.env.REACT_APP_TMDB_API_KEY}`)
               return data
             }
           },
@@ -84,7 +84,9 @@ const router = createBrowserRouter([
 const App = () => {
   return (
     <Provider store={store}>
-      <RouterProvider router={router}/>
+      <Suspense fallback={<div role="status" className="visually-hidden">Loading page…</div>}>
+        <RouterProvider router={router}/>
+      </Suspense>
     </Provider>
 
   )

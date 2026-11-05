@@ -1,24 +1,39 @@
-.pagination{
-    display: flex;
-    border-radius: 10px;
-    margin-inline: auto;
-    align-items: center;
-    gap: 1rem;
-    border: 1px solid var(--red);
-    overflow: hidden;
+/* Hallmark · theme: Spore · redesign: full · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E5 S5 R5 V4 · weakest: V, paging stays quiet beneath the title grid */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  width: fit-content;
+  max-width: 100%;
+  margin: var(--space-2xl) auto 0;
+  padding: var(--space-2xs);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  background: var(--color-paper-2);
 }
-.pagination button{
-    background-color: var(--red);
-    padding: 0.5rem 1rem;
-    color: var(--bg-2);
-    border: none;
-    transition: all 0.5s ease-in;
-}
-.pagination button:hover{
-    background-color: var(--white);
-}
-.pagination span{
-    color: var(--red);
-    font-weight: 600;
 
+.pagination button {
+  min-width: 44px;
+  min-height: 40px;
+  padding: var(--space-xs) var(--space-md);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-ink-2);
+  font-size: var(--text-sm);
+  transition: color var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+}
+
+.pagination button:hover {
+  background: var(--color-paper-3);
+  color: var(--color-accent);
+}
+
+.pagination span {
+  min-width: 72px;
+  color: var(--color-muted);
+  font-size: var(--text-xs);
+  text-align: center;
 }

@@ -1,0 +1,41 @@
+.card:hover {
+  transform: none;
+}
+
+.poster {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklch, var(--color-ink) 8%, transparent);
+  border-radius: var(--radius-card);
+  background: var(--color-paper-2);
+}
+
+.poster .shimmer {
+  position: absolute;
+  inset: 0;
+}
+
+.metadata {
+  display: flex;
+  align-items: center;
+  height: 18px;
+  margin-top: var(--space-xs);
+}
+
+.metadataBar {
+  width: 48%;
+  height: 9px;
+  border-radius: var(--radius-pill);
+}
+
+.title {
+  margin-top: var(--space-sm);
+}
+
+.titleBar {
+  width: 76%;
+  height: 1em;
+  border-radius: var(--radius-pill);
+}

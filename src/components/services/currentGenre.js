@@ -20,4 +20,3 @@ export const genre = createSlice({
 })
 export const {selectGenre,searchMovieOrTV} = genre.actions
 export default genre.reducer
-

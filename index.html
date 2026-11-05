@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Discover movies and TV shows, explore genres, and learn about the cast."
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="preload"
+      href="/fonts/instrument-sans-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/young-serif-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <style>
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        min-height: 100vh;
+        min-height: 100dvh;
+        flex-direction: column;
+      }
+
+      #root {
+        display: flex;
+        flex: 1 0 auto;
+        flex-direction: column;
+      }
+
+      footer {
+        margin-top: auto;
+      }
+    </style>
+    <title>Entertainment Movie App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <footer>
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">
+        Frontend Mentor
+      </a>.
+      Coded by <a href="#">SG</a>.
+    </footer>
+    <script type="module" src="/src/index.jsx"></script>
+  </body>
+</html>

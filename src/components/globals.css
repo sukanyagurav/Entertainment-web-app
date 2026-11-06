@@ -76,7 +76,7 @@ main {
   min-width: 0;
   flex: 1 0 auto;
   min-height: 0;
-  margin: var(--space-lg) auto 0;
+  margin: 0 auto 0;
   padding-bottom: var(--space-2xl);
 }
 
@@ -290,10 +290,6 @@ body::-webkit-scrollbar-thumb {
 
   header {
     top: 8px;
-  }
-
-  main {
-    margin-top: var(--space-md);
   }
 
   .container_card {

@@ -1,0 +1,5 @@
+# Require Sukanya's review for all files
+* @sukanyagurav
+
+# Protect the CODEOWNERS file itself
+/.github/CODEOWNERS @sukanyagurav

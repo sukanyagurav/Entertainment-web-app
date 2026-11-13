@@ -1,121 +1,99 @@
-# Frontend Mentor - Entertainment web app
+# Entertainment
 
-![Design desktop preview for the Movie list app](./src/assets/desktop%20preview.png)
+A responsive movie and TV discovery app built with React. Browse titles by category or genre, search TMDB, and explore cast, recommendations, and title details.
 
-![Design mobile preview for the movie list app](./src/assets/mobile%20preview.png)
+### 🌐 **Links**
+- 🔗 [GitHub](https://github.com/sukanyagurav/Entertainment-web-app)
+- 🚀 [Live URL](https://entertainmentwebapp67.netlify.app/)
 
-## Overview
+## Video
 
-A React-based entertainment web application for discovering movies and TV shows, including detailed information about actors. Users can also explore content categorized by genre.
+<video controls width="100%" preload="metadata">
+  <source src="./src/assets/movie%20app.mp4" type="video/mp4" />
+  Your browser does not support embedded videos. [Open the video](./src/assets/movie%20app.mp4).
+</video>
 
-The app supports responsive layouts, hover states, navigation between Home, Movies, and TV Series, searching across pages, recommendations and cast details for movies and TV series, and genre-based filtering with sort options.
+## Features
 
-## 🎨 Design Preview
+- Browse popular, top-rated, now-playing, and upcoming movies and TV shows.
+- Search across titles, with suggestions and recent searches.
+- Explore genres and filter or sort results by release year, rating, language, and popularity.
+- View title details, trailers, cast, watch providers, and recommendations.
+- Explore actor biographies and filmographies.
+- Load carousels as they approach the viewport and lazy-load responsive poster images.
 
-- **Desktop**: Full-width movie grid with carousel navigation and filtering panels
-- **Mobile**: Stacked layout with collapsible filters and bottom navigation
+## Tech stack
 
-## 📦 Features
-
-| Feature | Description |
-|---------|-------------|
-| **Genre Browsing** | Explore movies/TV by genre with filterable sort options |
-| **Sort & Filters** | Sort by rating, release date, popularity; filter by year, min rating, language |
-| **Carousel** | Horizontal scrollable carousels with lazy loading and arrow navigation |
-| **Search** | Search across movies and TV series simultaneously |
-| **Actor Details** | Full biographies, filmographies, and IMDb links |
-| **Movie Details** | Overview, rating, runtime, genres, trailers, and recommendations |
-| **Responsive** | Works across desktop and mobile form factors |
-
-## Built with
-
-- **React 18** with React Router DOM
-- **Redux Toolkit** (RTK Query) for data fetching and state management
-- **Vite** for fast development and building
-- **React IntersectionObserver** for lazy loading and viewport detection
-- **CSS** with modular CSS for component-scoped styling
+- React 18 and React Router
+- Redux Toolkit and RTK Query for application state and TMDB data fetching/caching
+- Vite
+- Netlify Functions for server-side TMDB API requests
+- CSS Modules and responsive CSS
+- TMDB API for movie, TV, and cast data
 
 ## Getting started
 
-Install dependencies and start the Vite development server:
+### Prerequisites
 
-```sh
-npm install
-npm run dev
-```
+- Node.js 22
+- A TMDB API key
 
-Vite prints the local development URL in the terminal.
+### Install and run
 
-## 🌐 Environment
+1. Clone the repository and install dependencies:
 
-The app uses a TMDB API key. Add it to a `.env` file in the project root:
+   ```sh
+   git clone https://github.com/sukanyagurav/Entertainment-web-app.git
+   cd Entertainment-web-app
+   npm ci
+   ```
 
-```env
-VITE_TMDB_API_KEY=your_tmdb_api_key
-```
+2. Create a `.env` file in the project root:
 
-The previous `REACT_APP_TMDB_API_KEY` name is also supported for existing local environment files. Use the `VITE_` prefix for new setups.
+   ```env
+   TMDB_API_KEY=your_tmdb_api_key
+   ```
 
-## Available scripts
+   The `.env` file is git-ignored. Do not use a `VITE_` prefix: Vite-prefixed variables are intended for browser code. The local Vite proxy reads `TMDB_API_KEY` server-side.
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start the development server with hot module replacement |
-| `npm start` | Alias for `npm run dev` |
+3. Start the development server:
+
+   ```sh
+   npm run dev
+   ```
+
+   Open the local URL printed by Vite. During development, Vite proxies TMDB requests and adds the key on the server.
+
+For Netlify deployment, add `TMDB_API_KEY` under **Site configuration → Environment variables**, then redeploy. The Netlify Function handles `/api/tmdb/*` requests without exposing the key to the browser.
+
+## Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the development server |
 | `npm run build` | Create a production build in `dist/` |
-| `npm test` | Run tests with Vitest |
 | `npm run preview` | Preview the production build locally |
+| `npm test -- --pool=threads --maxWorkers=1` | Run tests using the same worker settings as CI |
 
-## 🏗️ Architecture
+## Architecture
 
-The app uses a feature-based directory structure:
+- `src/index.jsx` mounts the React application.
+- `src/components/App.jsx` configures Redux, the router, and lazy-loaded route components.
+- `src/components/RootLayout.jsx` provides the shared navigation and page layout.
+- Page and UI components are grouped under `src/components/` by feature, including `Home/`, `Movies/`, `MovieInformation/`, `Actor/`, and `Carousel/`.
+- `src/components/app/store.js` registers the Redux reducers and RTK Query middleware.
+- `src/components/services/movies.js` defines TMDB endpoints. RTK Query retains unused query results for 50,000 seconds.
+- `src/components/services/currentGenre.js` stores genre and search state.
+- `src/components/MovieImage/` builds responsive TMDB image URLs and renders movie artwork.
+- `netlify/functions/tmdb.mjs` validates and forwards allowed TMDB requests using the server-side API key.
 
-```
-src/
-├── components/          # Reusable UI components
-│   ├── App.jsx          # Root router provider
-│   ├── NavBar.jsx       # Top navigation with search
-│   ├── Home.jsx         # Home page with carousels
-│   ├── Movies.jsx       # Movie/TV list with sort/filter
-│   ├── Category.jsx     # Genre selection grid
-│   ├── Carousel.jsx     # Horizontal scrollable carousel
-│   ├── Movie.jsx        # Individual movie tile
-│   ├── MovieInformation.jsx # Detailed movie/TV page
-│   ├── Actor.jsx        # Actor biography and filmography
-│   ├── Tv.jsx           # TV series listing page
-│   ├── Pagination.jsx   # Page navigation
-│   ├── Rating.jsx       # Star rating display
-│   ├── SearchInput.jsx  # Search bar component
-│   └── Error.jsx        # Error boundary page
-├── services/            # API and state management
-│   ├── movies.js        # RTK Query API with TMDB endpoints
-│   └── currentGenre.js  # Redux slice for genre state
-├── index.jsx            # React DOM root renderer
-└── components/Router.jsx # Browser router configuration
-```
+## Main routes
 
-## Key API endpoints (RTK Query)
-
-The `movies.js` service provides auto-caching and refetching for:
-
-- **Initial load**: `getInitialMovies` — popular, top_rated, upcoming, now_playing
-- **Genre discovery**: `getInitialMovies` — filter by genre ID with sort/year/rating/language
-- **Search**: `getInitialMovies` — multi-search or type-specific search
-- **By ID**: `getMovie` — movie/TV details with credits and videos
-- **Recommendations**: `getRecommendations` — "You may also like"
-- **Actor details**: `getActorsDetailysById` — cast and biography data
-
-Sort/filter options supported in discover queries:
-
-| Type | Sort options | Filter options |
-|------|-------------|----------------|
-| **movies** | `release_date.desc`, `release_date.asc`, `rating.desc`, `rating.asc`, `popularity.desc` | `year`, `minRating`, `language` |
-| **tv** | `first_air_date.desc`, `first_air_date.asc`, `vote_average.desc`, `vote_average.asc`, `popularity.desc` | `year`, `minRating`, `language` |
-
-## 📱 Screens
-
-- **Home** (`/`): Carousels for Now Playing, Popular, Top Rated, Upcoming (movies) and Top Rated, Popular, On The Air, Airing Today (TV)
-- **Movies/TV by genre**: `/movie/genre/:genre` or `/tv/genre/:genre`
-- **Search**: `/search/:query`
-- **Details**: `/movie/:id` or `/tv/:id` — with overview, rating, genres, cast, trailer, and recommendations
-- **Actor**: `/actors/:id` — biography, IMDb profile, movie and TV credits with pagination
+| Route | Page |
+|---|---|
+| `/` | Home carousels |
+| `/movie` or `/tv` | Genre browsing |
+| `/movie/genre/:genre` or `/tv/genre/:genre` | Filtered title listing |
+| `/search/:query`, `/movie/search/:query`, `/tv/search/:query` | Search results |
+| `/movie/:id` or `/tv/:id` | Title details |
+| `/actors/:id` | Actor details and filmography |
